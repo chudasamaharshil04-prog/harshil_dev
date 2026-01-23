@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Button with Hover Effect</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #37FF8B, #00D4FF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .demo-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .demo-title {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #37FF8B;
+        }
+        
+        /* === removing default button style ===*/
+        .button {
+            margin: 0;
+            height: auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* button styling */
+        .button {
+            --border-right: 6px;
+            --text-stroke-color: rgba(255,255,255,0.6);
+            --animation-color: #37FF8B;
+            --fs-size: 2em;
+            letter-spacing: 3px;
+            text-decoration: none;
+            font-size: var(--fs-size);
+            font-family: "Arial";
+            position: relative;
+            text-transform: uppercase;
+            color: transparent;
+            -webkit-text-stroke: 1px var(--text-stroke-color);
+        }
+        
+        /* this is the text, when you hover on button */
+        .hover-text {
+            position: absolute;
+            box-sizing: border-box;
+            content: attr(data-text);
+            color: var(--animation-color);
+            width: 0%;
+            inset: 0;
+            border-right: var(--border-right) solid var(--animation-color);
+            overflow: hidden;
+            transition: 0.5s;
+            -webkit-text-stroke: 1px var(--animation-color);
+        }
+        
+        /* hover */
+        .button:hover .hover-text {
+            width: 100%;
+            filter: drop-shadow(0 0 23px var(--animation-color));
+        }
+        
+        /* Additional button variations */
+        .button-variations {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .button.blue {
+            --animation-color: #00D4FF;
+            --text-stroke-color: rgba(0, 212, 255, 0.6);
+        }
+        
+        .button.purple {
+            --animation-color: #B721FF;
+            --text-stroke-color: rgba(183, 33, 255, 0.6);
+        }
+        
+        .button.red {
+            --animation-color: #FF416C;
+            --text-stroke-color: rgba(255, 65, 108, 0.6);
+        }
+        
+        .code-section {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
+            padding: 25px;
+            width: 100%;
+            margin-top: 30px;
+            border-left: 4px solid #37FF8B;
+        }
+        
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .code-title {
+            font-size: 1.2rem;
+            color: #37FF8B;
+        }
+        
+        pre {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+        
+        .highlight {
+            color: #37FF8B;
+        }
+        
+        .explanation {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            width: 100%;
+            margin-top: 30px;
+        }
+        
+        .explanation h3 {
+            color: #37FF8B;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .explanation p {
+            line-height: 1.6;
+            margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .explanation ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .explanation li {
+            line-height: 1.6;
+            margin-bottom: 8px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .note {
+            background: rgba(55, 255, 139, 0.1);
+            border-left: 4px solid #37FF8B;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .button-variations {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .demo-section {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-magic"></i> Animated Button Effect</h1>
+            <p class="subtitle">A CSS-based animated button with a smooth hover effect that reveals colored text with a glowing border</p>
+        </div>
+        
+        <div class="demo-section">
+            <h2 class="demo-title">Hover over the buttons to see the effect</h2>
+            
+            <!-- Original button -->
+            <button class="button" data-text="Awesome">
+                <span class="actual-text">&nbsp;uiverse&nbsp;</span>
+                <span aria-hidden="true" class="hover-text">&nbsp;uiverse&nbsp;</span>
+            </button>
+            
+            <!-- Button variations -->
+            <div class="button-variations">
+                <button class="button blue" data-text="Beautiful">
+                    <span class="actual-text">&nbsp;uiverse&nbsp;</span>
+                    <span aria-hidden="true" class="hover-text">&nbsp;uiverse&nbsp;</span>
+                </button>
+                
+                <button class="button purple" data-text="Creative">
+                    <span class="actual-text">&nbsp;uiverse&nbsp;</span>
+                    <span aria-hidden="true" class="hover-text">&nbsp;uiverse&nbsp;</span>
+                </button>
+                
+                <button class="button red" data-text="Amazing">
+                    <span class="actual-text">&nbsp;uiverse&nbsp;</span>
+                    <span aria-hidden="true" class="hover-text">&nbsp;uiverse&nbsp;</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="code-section">
+            <div class="code-header">
+                <h3 class="code-title"><i class="fas fa-code"></i> Complete Code</h3>
+            </div>
+            <pre><code>&lt;!-- HTML --&gt;
+&lt;button class="button" data-text="Awesome"&gt;
+    &lt;span class="actual-text"&gt;&nbsp;uiverse&nbsp;&lt;/span&gt;
+    &lt;span aria-hidden="true" class="hover-text"&gt;&nbsp;uiverse&nbsp;&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;style&gt;
+<span class="highlight">/* === removing default button style ===*/</span>
+.button {
+  margin: 0;
+  height: auto;
+  background: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+<span class="highlight">/* button styling */</span>
+.button {
+  --border-right: 6px;
+  --text-stroke-color: rgba(255,255,255,0.6);
+  --animation-color: #37FF8B;
+  --fs-size: 2em;
+  letter-spacing: 3px;
+  text-decoration: none;
+  font-size: var(--fs-size);
+  font-family: "Arial";
+  position: relative;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+
+<span class="highlight">/* this is the text, when you hover on button */</span>
+.hover-text {
+  position: absolute;
+  box-sizing: border-box;
+  content: attr(data-text);
+  color: var(--animation-color);
+  width: 0%;
+  inset: 0;
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: 0.5s;
+  -webkit-text-stroke: 1px var(--animation-color);
+}
+
+<span class="highlight">/* hover */</span>
+.button:hover .hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 23px var(--animation-color));
+}
+&lt;/style&gt;</code></pre>
+        </div>
+        
+        <div class="explanation">
+            <h3><i class="fas fa-info-circle"></i> How This Effect Works</h3>
+            <p>This button uses a clever CSS technique to create an animated hover effect:</p>
+            <ul>
+                <li><strong>Two Text Layers:</strong> The button contains two identical text spans stacked on top of each other.</li>
+                <li><strong>Base Layer:</strong> The <code>.actual-text</code> is semi-transparent white with a text-stroke effect.</li>
+                <li><strong>Hover Layer:</strong> The <code>.hover-text</code> is colored green (#37FF8B) and initially has 0% width.</li>
+                <li><strong>Hover Animation:</strong> When hovering, the <code>.hover-text</code> expands to 100% width, revealing the colored text.</li>
+                <li><strong>Border Effect:</strong> A right border creates the typing cursor effect that expands with the text.</li>
+                <li><strong>Glow Effect:</strong> The <code>drop-shadow</code> filter creates a glowing effect on hover.</li>
+            </ul>
+            
+            <div class="note">
+                <p><strong>Note:</strong> The <code>data-text</code> attribute on the button is referenced in the CSS pseudo-element, though in this implementation the text is hardcoded in the spans. The <code>aria-hidden="true"</code> attribute ensures screen readers don't announce the duplicate text.</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Created with HTML & CSS | Inspired by Uiverse.io | Hover effect using CSS transitions</p>
+        </div>
+    </div>
+
+    <script>
+        // Simple script to demonstrate the button's interactivity
+        document.querySelectorAll('.button').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                // Add a subtle scale effect on hover
+                this.style.transform = 'scale(1.05)';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                // Reset the scale effect
+                this.style.transform = 'scale(1)';
+            });
+            
+            // Add click effect
+            button.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 150);
+                
+                // Get the data-text value for feedback
+                const text = this.getAttribute('data-text');
+                console.log(`Button clicked! Text: ${text}`);
+            });
+        });
+    </script>
+</body>
+</html>

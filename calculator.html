@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" type="image/png" href="1.png">
+<meta charset="UTF-8">
+<title>Calculator | Harshil Projects</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+
+<div class="calculator">
+    <h2>Calculator</h2>
+    <div class="display" id="display">0</div>
+    <div class="buttons">
+        <button onclick="clearDisplay()">C</button>
+        <button onclick="deleteChar()">DEL</button>
+        <button class="operator" onclick="appendValue('/')">/</button>
+        <button class="operator" onclick="appendValue('*')">*</button>
+
+        <button onclick="appendValue('7')">7</button>
+        <button onclick="appendValue('8')">8</button>
+        <button onclick="appendValue('9')">9</button>
+        <button class="operator" onclick="appendValue('-')">-</button>
+
+        <button onclick="appendValue('4')">4</button>
+        <button onclick="appendValue('5')">5</button>
+        <button onclick="appendValue('6')">6</button>
+        <button class="operator" onclick="appendValue('+')">+</button>
+
+        <button onclick="appendValue('1')">1</button>
+        <button onclick="appendValue('2')">2</button>
+        <button onclick="appendValue('3')">3</button>
+        <button class="equals" onclick="calculate()">=</button>
+
+        <button onclick="appendValue('0')" style="grid-column:span 2;">0</button>
+        <button onclick="appendValue('.')">.</button>
+    </div>
+</div>
+
+<script>
+let display = document.getElementById('display');
+let currentInput = '';
+
+function appendValue(val){
+    if(currentInput === '0') currentInput = '';
+    currentInput += val;
+    display.textContent = currentInput;
+}
+
+function clearDisplay(){
+    currentInput = '';
+    display.textContent = '0';
+}
+
+function deleteChar(){
+    currentInput = currentInput.slice(0,-1);
+    if(currentInput === '') display.textContent = '0';
+    else display.textContent = currentInput;
+}
+
+function calculate(){
+    try{
+        currentInput = eval(currentInput).toString();
+        display.textContent = currentInput;
+    }catch(e){
+        display.textContent = 'Error';
+        currentInput = '';
+    }
+}
+</script>
+
+</body>
+</html>

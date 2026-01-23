@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" type="image/png" href="1.png">
+<meta charset="UTF-8">
+<title>Harshil Resume</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body {
+    background:#f4f4f4;
+    color:#333;
+    line-height:1.6;
+}
+
+.resume-container {
+    max-width:800px;
+    margin:40px auto;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.2);
+}
+
+/* HEADER */
+.header {
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.header h1 {
+    font-size:32px;
+    color:#00eaff;
+    margin-bottom:5px;
+}
+
+.header h3 {
+    font-size:18px;
+    color:#555;
+}
+
+/* SECTION TITLES */
+h2.section-title {
+    color:#00eaff;
+    margin-top:25px;
+    margin-bottom:15px;
+    border-bottom:2px solid #00eaff;
+    display:inline-block;
+    padding-bottom:5px;
+}
+
+/* CONTACT INFO */
+.contact-info {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    margin-bottom:20px;
+}
+
+.contact-info div {
+    flex:1;
+    min-width:200px;
+    margin-bottom:10px;
+}
+
+/* SKILLS */
+.skills {
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.skill {
+    background:#e0e0e0;
+    color:#333;
+    padding:5px 10px;
+    border-radius:15px;
+    font-size:14px;
+}
+
+/* EDUCATION & EXPERIENCE */
+.education-item, .experience-item {
+    margin-bottom:15px;
+}
+
+.item-title {
+    font-weight:600;
+    color:#333;
+}
+
+.item-subtitle {
+    font-size:14px;
+    color:#555;
+}
+
+.item-desc {
+    font-size:14px;
+    color:#444;
+    margin-top:5px;
+}
+
+/* BUTTON */
+.download-btn {
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 25px;
+    background:#00eaff;
+    color:black;
+    border:none;
+    border-radius:25px;
+    text-decoration:none;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.download-btn:hover {
+    background:#00ffa2;
+}
+</style>
+</head>
+<body>
+
+<div class="resume-container">
+    <div class="header">
+        <h1>Harshil Chudasama</h1>
+        <h3>BCA Student | Web Developer | Tech Enthusiast</h3>
+    </div>
+
+    <!-- Contact -->
+    <h2 class="section-title">Contact</h2>
+    <div class="contact-info">
+        <div><strong>Email:</strong> yourname@email.com</div>
+        <div><strong>Phone:</strong> +91 XXXXX XXXXX</div>
+        <div><strong>Location:</strong> Bhavnagar, Gujarat, India</div>
+    </div>
+
+    <!-- Education -->
+    <h2 class="section-title">Education</h2>
+    <div class="education-item">
+        <div class="item-title">BCA - SSCCS College, Bhavnagar</div>
+        <div class="item-subtitle">2023 – Present</div>
+        <div class="item-desc">Pursuing Bachelor's in Computer Applications, focusing on web development, programming, and modern technologies.</div>
+    </div>
+    <div class="education-item">
+        <div class="item-title">Higher Secondary School</div>
+        <div class="item-subtitle">2021 – 2023</div>
+        <div class="item-desc">Completed Science stream with a focus on Mathematics and Computer fundamentals.</div>
+    </div>
+
+    <!-- Skills -->
+    <h2 class="section-title">Skills</h2>
+    <div class="skills">
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">Python</div>
+        <div class="skill">Git & GitHub</div>
+        <div class="skill">Responsive Design</div>
+    </div>
+
+    <!-- Projects -->
+    <h2 class="section-title">Projects</h2>
+    <div class="experience-item">
+        <div class="item-title">Portfolio Website</div>
+        <div class="item-subtitle">HTML | CSS | JavaScript</div>
+        <div class="item-desc">Personal portfolio showcasing my projects, skills, and contact information.</div>
+    </div>
+    <div class="experience-item">
+        <div class="item-title">Calculator App</div>
+        <div class="item-subtitle">JavaScript</div>
+        <div class="item-desc">Simple calculator web application with basic arithmetic functions.</div>
+    </div>
+
+    <!-- Download Button -->
+    <a href="Harshil_Resume.pdf" download class="download-btn">Download Resume</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" type="image/png" href="1.png">
+<meta charset="UTF-8">
+<title>Education | Harshil</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background: linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1c1c1c);
+    background-size:400% 400%;
+    animation: gradient 10s ease infinite;
+    color:white;
+    height:100vh;
+    overflow:hidden;
+}
+
+@keyframes gradient{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+/* NAVBAR */
+nav{
+    height:70px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 50px;
+}
+
+nav h1{
+    color:#00eaff;
+    font-size:26px;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:25px;
+}
+
+nav ul li{
+    position:relative;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+}
+
+nav ul li::after{
+    content:'';
+    width:0;
+    height:2px;
+    background:#00eaff;
+    position:absolute;
+    bottom:-6px;
+    left:0;
+    transition:0.3s;
+}
+
+nav ul li:hover::after{
+    width:100%;
+}
+
+/* EDUCATION SECTION */
+.education{
+    height:calc(100vh - 70px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+}
+
+.education-card{
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(15px);
+    border-radius:25px;
+    padding:40px;
+    max-width:1000px;
+    width:100%;
+    box-shadow:0 25px 60px rgba(0,0,0,0.6);
+}
+
+/* HEADER */
+.education-header{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.education-header h2{
+    font-size:38px;
+}
+
+.education-header span{
+    color:#00eaff;
+}
+
+/* TIMELINE */
+.timeline{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+/* ITEM */
+.edu{
+    background:rgba(255,255,255,0.08);
+    padding:25px;
+    border-radius:20px;
+    transition:0.3s;
+}
+
+.edu:hover{
+    transform:translateY(-8px);
+}
+
+.edu h3{
+    margin-bottom:5px;
+}
+
+.edu span{
+    font-size:13px;
+    color:#00eaff;
+}
+
+.edu p{
+    font-size:14px;
+    color:#ccc;
+    margin-top:10px;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    nav{padding:0 20px}
+    .timeline{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <h1>Harshil's Portfolio</h1>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="education">
+    <div class="education-card">
+
+        <div class="education-header">
+            <h2>My <span>Education</span></h2>
+            <p>Academic background & learning journey</p>
+        </div>
+
+        <div class="timeline">
+
+            <div class="edu">
+                <h3>Bachelor's Degree</h3>
+                <span>2023 – Present</span>
+                <p>
+                    Pursuing a bachelor's degree with focus on
+                    computer science, web technologies, and software development.
+                </p>
+            </div>
+
+            <div class="edu">
+                <h3>Higher Secondary</h3>
+                <span>2021 – 2023</span>
+                <p>
+                    Completed higher secondary education with science background
+                    and strong foundation in mathematics and logic.
+                </p>
+            </div>
+
+            <div class="edu">
+                <h3>Secondary School</h3>
+                <span>2019 – 2021</span>
+                <p>
+                    Built fundamental knowledge in academics while developing
+                    interest in technology and computers.
+                </p>
+            </div>
+
+            <div class="edu">
+                <h3>Online Certifications</h3>
+                <span>Ongoing</span>
+                <p>
+                    Learning web development, programming, and modern tools
+                    through online platforms and self-study.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+</body>
+</html>
